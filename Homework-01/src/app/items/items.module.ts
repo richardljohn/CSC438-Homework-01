@@ -7,6 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { ItemsPageRoutingModule } from './items-routing.module';
 
 import { ItemsPage } from './items.page';
+import { Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: ItemsPage
+  }
+];
 
 @NgModule({
   imports: [
