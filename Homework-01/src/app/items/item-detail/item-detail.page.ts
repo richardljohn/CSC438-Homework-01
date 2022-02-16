@@ -25,4 +25,8 @@ export class ItemDetailPage implements OnInit {
     });
   }
 
+  onDeleteRecipe(){
+    this.itemService.deleteItem(this.loadedItem.id)
+  }
+
 }
