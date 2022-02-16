@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ItemsService } from '../items.service';
+import { Item } from '../items.model';
 
 @Component({
   selector: 'app-item-detail',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemDetailPage implements OnInit {
 
-  constructor() { }
+  loadedItem: Item;
+
+
+  constructor(private activatedRoute: ActivatedRoute, private itemService: ItemsService) { }
 
   ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(paraMap => {
+      if(!paraMap.has('itemId')){
+        return;
+      }
+      const itemId = paraMap.get('itemId');
+      this.loadedItem = this.itemService.getItem(itemId);
+    });
   }
 
 }
