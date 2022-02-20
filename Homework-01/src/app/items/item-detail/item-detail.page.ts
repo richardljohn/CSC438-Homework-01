@@ -12,7 +12,6 @@ export class ItemDetailPage implements OnInit {
 
   loadedItem: Item;
 
-
   constructor(private activatedRoute: ActivatedRoute, private itemService: ItemsService) { }
 
   ngOnInit() {
