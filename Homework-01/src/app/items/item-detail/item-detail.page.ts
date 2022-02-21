@@ -28,4 +28,5 @@ export class ItemDetailPage implements OnInit {
     this.itemService.deleteItem(this.loadedItem.id)
   }
 
+
 }
