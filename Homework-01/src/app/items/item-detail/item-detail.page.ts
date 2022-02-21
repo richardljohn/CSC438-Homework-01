@@ -24,9 +24,12 @@ export class ItemDetailPage implements OnInit {
     });
   }
 
+  onAddItem(){
+    this.itemService.addItemToCart(this.loadedItem)
+  }
+
   onDeleteRecipe(){
     this.itemService.deleteItem(this.loadedItem.id)
   }
-
 
 }

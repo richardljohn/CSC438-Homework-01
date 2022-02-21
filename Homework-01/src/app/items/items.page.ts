@@ -17,4 +17,8 @@ export class ItemsPage implements OnInit {
     this.items = this.itemsService .getAllItems();
   }
 
+  onAddItem(i: Item){
+    this.itemsService.addItemToCart(i);
+  }
+
 }

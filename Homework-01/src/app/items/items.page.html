@@ -3,7 +3,6 @@
     <ion-title>items</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of items" [routerLink] = "['./', item.id]">
@@ -13,6 +12,15 @@
       <ion-label>
         {{item.name}}
       </ion-label>
+      <ion-label slot="end">
+        ${{item.price}}
+      </ion-label>
+      <ion-label slot="end">
+        {{item.quantity}}
+      </ion-label>
+      <ion-button (click)="onAddItem(item)">
+        <ion-icon name="add-outline" slot="icon-only"></ion-icon>
+      </ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
