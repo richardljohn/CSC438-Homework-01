@@ -10,4 +10,18 @@ export class CheckoutService {
 
   constructor() { }
 
+  calculateTotal(c_items: Item[]) {
+    let total = 0;
+    c_items.forEach((item, index) => {
+      total += item.price * item.quantity;
+    });
+    return total; 
+  }
+
+  clear(c_items: Item[]){
+    c_items.forEach((item, index) => {
+      c_items.splice(index, 1);
+    });
+  }
+
 }

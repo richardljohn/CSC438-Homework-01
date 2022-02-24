@@ -10,6 +10,7 @@ import { ItemsService } from './items.service';
 export class ItemsPage implements OnInit {
 
   items: Item[];
+  cart_items: Item[];
 
   constructor(private itemsService: ItemsService) { }
 
@@ -17,8 +18,11 @@ export class ItemsPage implements OnInit {
     this.items = this.itemsService .getAllItems();
   }
 
-  onAddItem(i: Item){
+  onAddCartItem(i: Item){
     this.itemsService.addItemToCart(i);
   }
 
+  onRemoveCartItem(i: Item){
+    this.itemsService.removeItemFromCart(i);
+  }
 }

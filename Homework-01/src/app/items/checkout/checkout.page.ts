@@ -18,4 +18,12 @@ export class CheckoutPage implements OnInit {
     this.checkout_items = this.ItemsService.getAllCartItems();
   }
 
+  onCalcTotal(){
+    return this.CheckoutService.calculateTotal(this.checkout_items);
+  }
+
+  onClear(){
+    this.CheckoutService.clear(this.checkout_items);
+  }
+
 }

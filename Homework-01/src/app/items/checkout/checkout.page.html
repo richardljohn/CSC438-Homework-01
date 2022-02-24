@@ -4,6 +4,13 @@
       <ion-back-button defaultHref="/recipes"></ion-back-button>
     </ion-buttons>
     <ion-title>Checkout</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-button (click)="onClear()">
+          <ion-icon name="trash" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -20,6 +27,13 @@
       </ion-label>
       <ion-label>
         Price: ${{item.quantity * item.price}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        Total: ${{onCalcTotal()}}
       </ion-label>
     </ion-item>
   </ion-list>

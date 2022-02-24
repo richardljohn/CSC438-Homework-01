@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { animationFrameScheduler } from 'rxjs';
 import {Item} from './items.model';
 
 
@@ -40,7 +41,7 @@ export class ItemsService {
       name: "Shrimp with Broccoli ",
       imageUrl: "https://i.ytimg.com/vi/7iIwkfO8ynU/maxresdefault.jpg",
       ingredients: ['Shrimp', 'Broccoli', 'Brown Sauce'],
-      price: 9.99,
+      price: 11.99,
       quantity: 0
     },
     {
@@ -67,8 +68,33 @@ export class ItemsService {
     this.items = this.items.filter(item => item.id !== itemId);
   }
 
+  getAllCartItems(){
+    return [...this.cart_items];
+  }
+
   addItemToCart(anItem: Item){
-    this.items.find(item => item === anItem).quantity++;
-    this.cart_items.push(anItem);
+    if(this.cart_items.includes(anItem)){
+      this.cart_items.find(item => item === anItem).quantity++;
+    }
+    else{ 
+      this.items.find(item => item === anItem).quantity++;
+      this.cart_items.push(anItem);
+    }
+  }
+
+  removeItemFromCart(anItem: Item){
+    if(this.cart_items.includes(anItem)){
+      if(this.cart_items.find(item => item === anItem).quantity == 1){
+        this.cart_items.forEach((element, index) => {
+          if(element == anItem){
+            this.cart_items.find(item => item === anItem).quantity--;
+            this.cart_items.splice(index, 1);
+          } 
+        });
+      }
+      else {
+        this.cart_items.find(item => item === anItem).quantity--;
+      }
+    }
   }
 }
