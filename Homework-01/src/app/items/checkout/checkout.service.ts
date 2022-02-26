@@ -18,10 +18,15 @@ export class CheckoutService {
     return total; 
   }
 
-  clear(c_items: Item[]){
+  cartTotal(c_items: Item[]){
+    let total = 0; 
     c_items.forEach((item, index) => {
-      c_items.splice(index, 1);
-    });
+      total += item.quantity;
+    })
+    return total;
   }
 
+  clear(c_items: Item[]){
+    c_items.splice(0, c_items.length);
+  }
 }

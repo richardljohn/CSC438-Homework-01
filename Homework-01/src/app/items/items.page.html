@@ -5,7 +5,7 @@
 </ion-header>
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items" [routerLink] = "['./', item.id]">
+    <ion-item *ngFor="let item of items">
       <ion-avatar slot="start">
         <ion-img [src]="item.imageUrl"></ion-img>
       </ion-avatar>
@@ -18,13 +18,17 @@
       <ion-label slot="end">
         {{item.quantity}}
       </ion-label>
-      <ion-button (click)="onAddCartItem(item)">
+      <ion-button [routerLink] = "['./', item.id]">
+        Find Out More
+      </ion-button>
+      <ion-button (click)="onAddCartItem(item)" [routerLink] = "null">
         Add to Cart
       </ion-button>
       <ion-button (click)="onRemoveCartItem(item)" slot="end">
         Remove
       </ion-button>
     </ion-item>
+    
     <ion-item class="ion-text-center" [routerLink] = "['./checkout']">
       <ion-button slot="end">
         <ion-label>

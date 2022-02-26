@@ -22,6 +22,10 @@ export class CheckoutPage implements OnInit {
     return this.CheckoutService.calculateTotal(this.checkout_items);
   }
 
+  onCartTotal(){
+    return this.CheckoutService.cartTotal(this.checkout_items);
+  }
+
   onClear(){
     this.CheckoutService.clear(this.checkout_items);
   }
