@@ -27,6 +27,9 @@ export class CheckoutService {
   }
 
   clear(c_items: Item[]){
+    c_items.forEach((item, index) => {
+      item.quantity = 0;
+    });
     c_items.splice(0, c_items.length);
   }
 }
