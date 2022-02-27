@@ -26,15 +26,35 @@
         Quantity: {{item.quantity}}
       </ion-label>
       <ion-label>
-        Price: ${{item.quantity * item.price}}
+        Price: ${{(item.quantity * item.price).toFixed(2)}}
       </ion-label>
+      <ion-button (click)="onAddOneItem(item)">
+        Add to Cart
+      </ion-button>
+      <ion-button (click)="onRemoveOneItem(item)" slot="end">
+        Remove
+      </ion-button>
     </ion-item>
   </ion-list>
   <ion-list>
     <ion-item>
       <ion-label>
-        Total: ${{onCalcTotal()}} ({{onCartTotal()}} items)
+        Total: ${{onCalcTotal().toFixed(2)}} ({{onCartTotal()}} items)
       </ion-label>
     </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-button expand="block">
+      Pay with Google Pay
+    </ion-button>
+    <ion-button expand="block">
+      Pay with Apple Pay
+    </ion-button>
+    <ion-button expand="block">
+      Pay with PayPal
+    </ion-button>
+    <ion-button expand="block">
+      Pay with Debit/Credit Card
+    </ion-button>
   </ion-list>
 </ion-content>

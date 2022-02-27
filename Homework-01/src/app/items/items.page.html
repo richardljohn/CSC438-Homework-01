@@ -21,14 +21,13 @@
       <ion-button [routerLink] = "['./', item.id]">
         Find Out More
       </ion-button>
-      <ion-button (click)="onAddCartItem(item)" [routerLink] = "null">
+      <ion-button (click)="onAddCartItem(item)">
         Add to Cart
       </ion-button>
       <ion-button (click)="onRemoveCartItem(item)" slot="end">
         Remove
       </ion-button>
     </ion-item>
-    
     <ion-item class="ion-text-center" [routerLink] = "['./checkout']">
       <ion-button slot="end">
         <ion-label>
@@ -38,3 +37,4 @@
     </ion-item>
   </ion-list>
 </ion-content>
+

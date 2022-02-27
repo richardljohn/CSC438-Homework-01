@@ -30,4 +30,12 @@ export class CheckoutPage implements OnInit {
     this.CheckoutService.clear(this.checkout_items);
   }
 
+  onAddOneItem(i: Item){
+    this.CheckoutService.addOneItem(this.checkout_items, i);
+  }
+
+  onRemoveOneItem(i: Item){
+    this.CheckoutService.removeOneItem(this.checkout_items, i);
+  }
+
 }

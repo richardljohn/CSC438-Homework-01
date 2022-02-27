@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { animationFrameScheduler } from 'rxjs';
 import {Item} from './items.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -97,4 +96,5 @@ export class ItemsService {
       }
     }
   }
+
 }

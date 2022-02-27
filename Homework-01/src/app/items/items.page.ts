@@ -25,4 +25,5 @@ export class ItemsPage implements OnInit {
   onRemoveCartItem(i: Item){
     this.itemsService.removeItemFromCart(i);
   }
+
 }

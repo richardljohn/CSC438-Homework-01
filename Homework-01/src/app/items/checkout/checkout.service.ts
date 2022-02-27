@@ -32,4 +32,26 @@ export class CheckoutService {
     });
     c_items.splice(0, c_items.length);
   }
+
+  addOneItem(c_items: Item[], anItem: Item){
+    c_items.find(item => item === anItem).quantity++;
+  }
+
+  removeOneItem(c_items: Item[], anItem: Item){
+    if(c_items.find(item => item === anItem).quantity < 1){
+      return;
+    }
+    if(c_items.find(item => item === anItem).quantity === 1){
+      c_items.forEach((element, index) => {
+        if(element == anItem){
+          element.quantity--;
+          c_items.splice(index, 1);
+        }
+      });
+    }
+    else {
+        c_items.find(item => item === anItem).quantity--;
+      }
+  }
+
 }
